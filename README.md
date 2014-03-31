@@ -1,4 +1,4 @@
 Programming-For-Web-Apps
 ========================
 
-Programming for Web Applications - Section 01 - WDD244
+Programming for Web Applications (WDD244) - Sec 01
