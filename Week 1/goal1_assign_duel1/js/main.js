@@ -59,6 +59,7 @@ function fight(){
         if (currentResult === "No Winner") {
             // Alert the user about the current health of the players.
             alert(playerOneName + ":" + playerOneHealth + " *ROUND " + round + " OVER* " + playerTwoName + ":" + playerTwoHealth);
+        }
         // Else...
         else {
             // Alert the player about the victor.
