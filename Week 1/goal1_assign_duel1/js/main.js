@@ -10,8 +10,9 @@
 
 var playerOneName = "Kevin";
 var playerTwoName = "Jason";
-var playerOneHealth = playerTwoHealth = 100;
+var playerOneHealth = playerTwoHealth = 1000;
 var playerOneMaxDamage = playerTwoMaxDamage = 50;
+var round = 1;
 
 
 
@@ -23,33 +24,45 @@ function fight(){
 	function winnerCheck(){
 
 		var result = "";
-		if (playerOneHealth <= 0 && playerTwoHealth <= 0){
+		if (round == 10){
+			if (playerOneHealth == playerTwoHealth){
+				result = "It's a draw!"
+				console.log("Draw!");
+			}
+			else if (playerOneHealth > playerTwoHealth){
+				result = "Player 1 is victorious!"
+				console.log("The winner is player 1.");
+			}
+			else {
+				result = "Player 2 is victorious!"
+				console.log("The winner is player 2.");
+			}
+		}
+		else if (playerOneHealth <= 0 && playerTwoHealth <= 0){
 			result = "Both players have fallen, there is no winner."
 			console.log("No winner.");
-			return result;
 		}
 		else if (playerOneHealth <= 0){
 			result = "Player 2 is victorious!"
 			console.log("The winner is player 2.");
-			return result;
 		}
 		else if (playerTwoHealth <= 0){
 			result = "Player 1 is victorious!"
 			console.log("The winner is player 1.");
-			return result;
 		}
 		else {
 			result = "The battle rages on!"
 			console.log("No winner yet.");
-			return result;
 		}
+
+		return result;
 	}
 
-	var round = 1;
-	var result = "";
+	var currentResult = "Let the fight commence!";
 	console.log(round);
 	console.log(playerOneHealth);
 	console.log(playerTwoHealth);
+	alert("Round " + round + " Player One HP: " + playerOneHealth + " Player Two HP: " + playerTwoHealth + " " + currentResult);
 	for (var i = 9; i > 0; i--){
 		round++;
 		playerOneDamage = Math.floor(Math.random() * 25 + 25);
@@ -60,11 +73,10 @@ function fight(){
 		console.log(playerOneHealth);
 		console.log(playerTwoHealth);
 		currentResult = winnerCheck();
-		alert("Round " + round + " " + currentResult);
+		alert("Round " + round + " Player One HP: " + playerOneHealth + " Player Two HP: " + playerTwoHealth + " " + currentResult);
 		if (playerOneHealth <= 0 || playerTwoHealth <= 0) {
 			break;
 		}
-
 	}
 }
 
