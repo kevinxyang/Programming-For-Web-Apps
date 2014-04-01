@@ -8,10 +8,10 @@
 // Givens
 // ------
 
-var playerOneName = prompt("What is player 1's name?", "Spiderman");
-var playerTwoName = prompt("What is player 2's name?", "Batman");
+var playerOneName = prompt("What is Player 1's Name?", "Spiderman");
+var playerTwoName = prompt("What is Player 2's Name?", "Batman");
 var playerOneHealth = playerTwoHealth = 100;
-var playerOneMaxDamage = playerTwoMaxDamage = 50;
+var playerOneMaxDamage = playerTwoMaxDamage = Number(prompt("How much damage do the fighters do?", 20));
 var round = 1;
 
 
@@ -31,11 +31,11 @@ function fight(){
 			}
 			else if (playerOneHealth > playerTwoHealth){
 				result = "Player 1 Wins"
-				console.log("Result: Player 1 Wins");
+				console.log("Result: " + playerOneName + " Wins");
 			}
 			else {
 				result = "Player 2 Wins"
-				console.log("Result: Player 2 Wins");
+				console.log("Result: " + playerTwoName + " Wins");
 			}
 		}
 		else if (playerOneHealth <= 0 && playerTwoHealth <= 0){
@@ -44,11 +44,11 @@ function fight(){
 		}
 		else if (playerOneHealth <= 0){
 			result = "Player 2 Wins"
-			console.log("Result: Player 2 Wins");
+			console.log("Result: " + playerTwoName + " Wins");
 		}
 		else if (playerTwoHealth <= 0){
 			result = "Player 1 Wins"
-			console.log("Result: Player 1 Wins");
+			console.log("Result: " + playerOneName + " Wins");
 		}
 		else {
 			result = "The Battle Rages On!"
@@ -66,8 +66,8 @@ function fight(){
 	alert(playerOneName + ":" + playerOneHealth + " " + currentResult + " " + playerTwoName + ":" + playerTwoHealth);
 	for (var i = 10; i > 0; i--){
 		round++;
-		playerOneDamage = Math.floor(Math.random() * 25 + 25);
-		playerTwoDamage = Math.floor(Math.random() * 25 + 25);
+		playerOneDamage = Math.floor(Math.random() * (playerOneMaxDamage / 2) + (playerOneMaxDamage / 2));
+		playerTwoDamage = Math.floor(Math.random() * (playerTwoMaxDamage / 2) + (playerOneMaxDamage / 2));
 		playerOneHealth -= playerTwoDamage;
 		playerTwoHealth -= playerOneDamage;
 		console.log("Round " + round);
