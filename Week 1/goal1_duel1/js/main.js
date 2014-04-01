@@ -115,3 +115,12 @@ function winnerCheck(){
     return result;
 };
 
+
+
+// Output
+// ------
+
+// Calls the fight() function.
+fight();
+
+// End
