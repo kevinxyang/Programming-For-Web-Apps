@@ -9,12 +9,9 @@
 // ------
 
 var playerOneName = "Kevin";
-var playerOneHealth = 100;
-var playerOneMaxDamage = 50;
-
 var playerTwoName = "Jason";
-var playerTwoHealth = 100;
-var playerTwoMaxDamage = 50;
+var playerOneHealth = playerTwoHealth = 100;
+var playerOneMaxDamage = playerTwoMaxDamage = 50;
 
 
 
@@ -65,3 +62,5 @@ function fight(){
 // ------
 
 fight();
+
+// End
