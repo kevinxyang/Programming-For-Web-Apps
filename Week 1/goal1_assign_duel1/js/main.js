@@ -21,21 +21,32 @@ var playerOneMaxDamage = playerTwoMaxDamage = 50;
 function fight(){
 
 	function winnerCheck(){
+
+		var result = "";
 		if (playerOneHealth <= 0 && playerTwoHealth <= 0){
+			result = "Both players have fallen, there is no winner."
 			console.log("No winner.");
+			return result;
 		}
 		else if (playerOneHealth <= 0){
+			result = "Player 2 is victorious!"
 			console.log("The winner is player 2.");
+			return result;
 		}
 		else if (playerTwoHealth <= 0){
+			result = "Player 1 is victorious!"
 			console.log("The winner is player 1.");
+			return result;
 		}
 		else {
+			result = "The battle rages on!"
 			console.log("No winner yet.");
+			return result;
 		}
 	}
 
 	var round = 1;
+	var result = "";
 	console.log(round);
 	console.log(playerOneHealth);
 	console.log(playerTwoHealth);
@@ -48,7 +59,8 @@ function fight(){
 		console.log(round);
 		console.log(playerOneHealth);
 		console.log(playerTwoHealth);
-		winnerCheck();
+		currentResult = winnerCheck();
+		alert("Round " + round + " " + currentResult);
 		if (playerOneHealth <= 0 || playerTwoHealth <= 0) {
 			break;
 		}
