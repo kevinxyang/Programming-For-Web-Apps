@@ -73,6 +73,8 @@ function fight(){
 	}
 
 	var currentResult = "*START*";
+	var playerOneMinDamage = playerOneMaxDamage * .5;
+	var playerTwoMinDamage = playerTwoMaxDamage * .5;
 	console.log("Round " + round);
 	console.log(playerOneName + ":" + playerOneHealth + " " + playerTwoName + ":" + playerTwoHealth);
 	console.log("Fight!");
@@ -80,8 +82,8 @@ function fight(){
 	alert(playerOneName + ":" + playerOneHealth + " " + currentResult + " " + playerTwoName + ":" + playerTwoHealth);
 	for (var i = 0; i < 10; i++){
 		round++;
-		playerOneDamage = Math.floor(Math.random() * (playerOneMaxDamage / 2) + (playerOneMaxDamage / 2));
-		playerTwoDamage = Math.floor(Math.random() * (playerTwoMaxDamage / 2) + (playerOneMaxDamage / 2));
+		playerOneDamage = Math.floor(Math.random() * (playerOneMaxDamage - playerOneMinDamage) + playerOneMinDamage);
+		playerTwoDamage = Math.floor(Math.random() * (playerTwoMaxDamage - playerTwoMinDamage) + playerTwoMinDamage);
 		playerOneHealth -= playerTwoDamage;
 		playerTwoHealth -= playerOneDamage;
 		console.log("Round " + round);
