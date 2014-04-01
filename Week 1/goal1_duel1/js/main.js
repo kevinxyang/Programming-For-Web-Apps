@@ -68,3 +68,50 @@ function fight(){
         }
     };
 };
+
+// Updates the current result of the fight and checks if there is a victor.
+function winnerCheck(){
+    // Sets the default result to the empty string.
+    var result = "";
+    // If it's been 10 rounds, then...
+    if (round === 10){
+        // If both players healths are equal, then its a draw.
+        if (playerOneHealth === playerTwoHealth){
+            result = "It's a Draw!"
+            console.log("Result: It's a Draw");
+        }
+        // Else if, player 1 has more health then player 1 wins.
+        else if (playerOneHealth > playerTwoHealth){
+            result = "Player 1 Wins"
+            console.log("Result: " + playerOneName + " Wins");
+        }
+        // Else, player 2 wins.
+        else {
+            result = "Player 2 Wins"
+            console.log("Result: " + playerTwoName + " Wins");
+        }
+    }
+    // Else if, both players healths are depleted then they both die.
+    else if (playerOneHealth <= 0 && playerTwoHealth <= 0){
+        result = "You Both Die"
+        console.log("Result: You Both Die");
+    }
+    // Else if, player 1's health is depleted then player 2 wins.
+    else if (playerOneHealth <= 0){
+        result = "Player 2 Wins"
+        console.log("Result: " + playerTwoName + " Wins");
+    }
+    // Else if, player 2's health is depleted then player 1 wins.
+    else if (playerTwoHealth <= 0){
+        result = "Player 1 Wins"
+        console.log("Result: " + playerOneName + " Wins");
+    }
+    // Else, the battle continues and there is no victor yet.
+    else {
+        result = "No Winner"
+        console.log("Result: No Winner");
+    }
+    // Returns the current result.
+    return result;
+};
+
