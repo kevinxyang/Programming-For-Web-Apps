@@ -129,9 +129,24 @@
     //--------------------------------------------------------
     console.log("5. how many vowels in a word");
 
-        //PUT FUNCTION HERE
+    var vowelsInWord = function(word) {
+
+        var count = 0;
+        var newWord = new String(word.toUpperCase());
+
+        for (var i = 0; i < newWord.length; i++) {
+            if (newWord[i] === "A" || newWord[i] === "E" || newWord[i] === "I" || newWord[i] === "O" || newWord[i] === "U") {
+                count++;
+            } else {
+                continue;
+            }
+        }
+
+        return count;
+    }
 
     console.log(vowelsInWord('JavaScript'));
+    console.log(vowelsInWord('YEEEeeAaH'));
 
     //--------------------------------------------------------
     console.log("6. find number and create an array of even or odd numbers");
