@@ -8,12 +8,18 @@
 // Givens
 // ------
 
+// Declare playerOne and playerTwo variables as Arrays.
 var playerOne = [];
 var playerTwo = [];
+// Prompts the user for Player 1's name.
 playerOne[0] = prompt("What is Player 1's Name?", "Spiderman");
+// Prompts the user for Player 2's name.
 playerTwo[0] = prompt("What is Player 2's Name?", "Batman");
+// Prompts the user for the maximum damage each player can inflict.
 playerOne[1] = playerTwo[1] = Number(prompt("What is the maximum damage they can do?", 20));
+// Sets the starting health at 100.
 playerOne[2] = playerTwo[2] = 100;
+// Sets the starting round to 1.
 var round = 1;
 
 
