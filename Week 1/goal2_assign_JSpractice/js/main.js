@@ -47,18 +47,19 @@
     console.log("1. avg of an array of numbers");
 
     var avgNumbers = function(arr) {
-
+        // Set the divisor equal to the number of items in the array.
         var denominator = arr.length;
+        // Default numerator and average are set to 0.
         var numerator = 0;
         var average = 0;
-
+        // For each element in the array, add that element to the numerator.
         for (var i = 0; i < arr.length; i++) {
             numerator += arr[i];
         }
-
+        // Calculate the average and return the value.
         average = numerator / denominator;
         return average;
-    };
+    }; // End of avgNumber() function.
 
     console.log('avg number = ', avgNumbers([1,2,3,4,5]));
     console.log('avg number = ', avgNumbers([.2,5,15,25.5,100]));
@@ -67,16 +68,17 @@
     console.log("2. concat first and last name");
 
     var fullName = function(first, last) {
-
+        // Start with an empty string.
         var name = "";
+        // Convert the two strings into an array of letters, add a space between first and last.
         var letters = new String(first + " " + last);
-
+        // For each element in the letters array, concat it to our name string.
         for (var i = 0; i < letters.length; i++) {
             name += letters[i];
         }
-
+        // Return the string.
         return name;
-    }
+    } // End of fullName() function.
 
     console.log(fullName('James', 'Bond'));
     console.log(fullName('Kevin', 'Yang'));
@@ -86,10 +88,12 @@
     var ipsum = "this is test text that is being used as input to a function"
 
     var wordCount = function(phrase) {
-
+        // Set the count to 0.
         var count = 0;
+        // Convert the string to an array of letters. The space at the end is to make sure the count is correct.
         var newPhrase = new String(phrase + " ");
-
+        // For each element in the array, if a space is followed by another space, then continue.
+        // Else increment the count by 1.
         for (var i = 0; i < newPhrase.length; i++) {
             if (newPhrase[i] === " ") {
                 if (newPhrase[i+1] === " ") {
@@ -99,9 +103,9 @@
                 }
             }
         }
-
+        // Return the value of count.
         return count;
-    }
+    } // End of wordCount() function.
 
     console.log(wordCount(ipsum));
 
@@ -109,10 +113,12 @@
     console.log("4. sentence char count");
 
     var charCount = function(sentence) {
-
+        // Set the count to 0.
         var count = 0;
+        // Convert the string to an array of letters.
         var newSentence = new String(sentence);
-
+        // For each element in the array, if it is a space then continue.
+        // Else increment the count by 1.
         for (var i = 0; i < newSentence.length; i++) {
             if (newSentence[i] === " ") {
                 continue;
@@ -120,9 +126,9 @@
                 count++;
             }
         }
-
+        // Return the value of count.
         return count;
-    }
+    } // End of charCount() function.
 
     console.log(charCount(ipsum));
 
@@ -130,10 +136,12 @@
     console.log("5. how many vowels in a word");
 
     var vowelsInWord = function(word) {
-
+        // Set the count to 0.
         var count = 0;
+        // Convert the string to an array of uppercase letters.
         var newWord = new String(word.toUpperCase());
-
+        // For each element in the array, if that element is an uppercase vowel then increment the count by 1.
+        // Else continue.
         for (var i = 0; i < newWord.length; i++) {
             if (newWord[i] === "A" || newWord[i] === "E" || newWord[i] === "I" || newWord[i] === "O" || newWord[i] === "U") {
                 count++;
@@ -141,7 +149,7 @@
                 continue;
             }
         }
-
+        // Return the value of count.
         return count;
     }
 
@@ -152,9 +160,11 @@
     console.log("6. find number and create an array of even or odd numbers");
 
     var findNum = function(arr, bool) {
+        // Declare two arrays, one to hold the even numbers and one to hold the odd.
         var evenArray = [];
         var oddArray = [];
-
+        // For each element in the array, if it is even then append it to the evenArray.
+        // Else, append it to the oddArray.
         for (var i = 0; i < arr.length; i++) {
             if (arr[i] % 2 === 0) {
                 evenArray.push(arr[i]);
@@ -162,11 +172,11 @@
                 oddArray.push(arr[i]);
             }
         }
-
+        // Return the oddArray if the boolean is false or null.
         if (bool === false || bool === null) {
             return oddArray;
         }
-
+        // Return the evenArray by default.
         return evenArray;
     }
 
