@@ -5,6 +5,31 @@
 
 
 
+function winnerCheck(arrayOne, arrayTwo, currentRound) {
+    'use strict';
+    var result = "No Winner";
+    if (currentRound === 10) {
+        if (arrayOne[2] === arrayTwo[2]) {
+            result = "Draw";
+        } else if (arrayOne[2] > arrayTwo[2]) {
+            result = arrayOne[0] + " Wins";
+        } else {
+            result = arrayTwo[0] + " Wins";
+        }
+    } else if ((arrayOne[2] <= 0) && (arrayTwo[2] <= 0)) {
+        result = "Both Die";
+    } else if (arrayOne[2] <= 0) {
+        result = arrayTwo[0] + " Wins";
+    } else if (arrayTwo[2] <= 0) {
+        result = arrayOne[0] + " Wins";
+    } else {
+        result = "No Winner";
+    }
+    return result;
+}
+
+
+
 function fight(arrayOne, arrayTwo) {
     'use strict';
     var round = 1;
