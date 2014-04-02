@@ -8,8 +8,12 @@
 // Givens
 // ------
 
-var playerOne = ["Spiderman", 20, 100];
-var playerTwo = ["Batman", 20, 100];
+var playerOne = [];
+var playerTwo = [];
+playerOne[0] = prompt("What is Player 1's Name?", "Spiderman");
+playerTwo[0] = prompt("What is Player 2's Name?", "Batman");
+playerOne[1] = playerTwo[1] = Number(prompt("What is the maximum damage they can do?", 20));
+playerOne[2] = playerTwo[2] = 100;
 var round = 1;
 
 
