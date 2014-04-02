@@ -77,37 +77,44 @@ function winnerCheck(){
     if (round === 10){
         // If both players healths are equal, then its a draw.
         if (playerOneHealth === playerTwoHealth){
+            // Update the result.
             result = "It's a Draw!"
             console.log("Result: It's a Draw");
         }
         // Else if, player 1 has more health then player 1 wins.
         else if (playerOneHealth > playerTwoHealth){
+            // Update the result.
             result = "Player 1 Wins"
             console.log("Result: " + playerOneName + " Wins");
         }
         // Else, player 2 wins.
         else {
+            // Update the result.
             result = "Player 2 Wins"
             console.log("Result: " + playerTwoName + " Wins");
         }
     }
     // Else if, both players healths are depleted then they both die.
     else if (playerOneHealth <= 0 && playerTwoHealth <= 0){
+        // Update the result.
         result = "You Both Die"
         console.log("Result: You Both Die");
     }
     // Else if, player 1's health is depleted then player 2 wins.
     else if (playerOneHealth <= 0){
+        // Update the result.
         result = "Player 2 Wins"
         console.log("Result: " + playerTwoName + " Wins");
     }
     // Else if, player 2's health is depleted then player 1 wins.
     else if (playerTwoHealth <= 0){
+        // Update the result.
         result = "Player 1 Wins"
         console.log("Result: " + playerOneName + " Wins");
     }
     // Else, the battle continues and there is no victor yet.
     else {
+        // Update the result.
         result = "No Winner"
         console.log("Result: No Winner");
     }
