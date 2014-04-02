@@ -45,6 +45,7 @@
     console.log('------ Goal2: Assignment: JavaScript Practice ----------');
 
     console.log("1. avg of an array of numbers");
+
     var avgNumbers = function(arr) {
 
         var denominator = arr.length;
@@ -60,6 +61,7 @@
     };
 
     console.log('avg number = ', avgNumbers([1,2,3,4,5]));
+    console.log('avg number = ', avgNumbers([.2,5,15,25.5,100]));
 
     //--------------------------------------------------------
     console.log("2. concat first and last name");
@@ -77,12 +79,29 @@
     }
 
     console.log(fullName('James', 'Bond'));
+    console.log(fullName('Kevin', 'Yang'));
 
     //--------------------------------------------------------
     console.log("3. word count");
     var ipsum = "this is test text that is being used as input to a function"
 
-        //PUT FUNCTION HERE
+    var wordCount = function(phrase) {
+
+        var count = 0;
+        var newPhrase = new String(phrase + " ");
+
+        for (var i = 0; i < newPhrase.length; i++) {
+            if (newPhrase[i] === " ") {
+                if (newPhrase[i+1] === " ") {
+                    continue;
+                } else {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
 
     console.log(wordCount(ipsum));
 
