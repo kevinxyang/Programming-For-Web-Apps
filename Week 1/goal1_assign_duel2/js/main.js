@@ -5,6 +5,33 @@
 
 
 
+function fight(arrayOne, arrayTwo) {
+    'use strict';
+    var round = 1;
+    var playerOneMinDamage = arrayOne[1] * .5;
+    var playerTwoMinDamage = arrayTwo[1] * .5;
+    for (var i = 0; i < 10; i++) {
+        var playerOneDamage = Math.floor(Math.random() * (arrayOne[1] - playerOneMinDamage) + playerOneMinDamage);
+        var playerTwoDamage = Math.floor(Math.random() * (arrayTwo[1] - playerTwoMinDamage) + playerTwoMinDamage);
+        arrayOne[2] -= playerOneDamage;
+        arrayTwo[2] -= playerTwoDamage;
+        round++;
+        alert(arrayOne[0] + ":" + arrayOne[2] + " *ROUND " + round + "* " + arrayTwo[0] + ":" + arrayTwo[2]);
+        console.log("---- Round " + round + " ----");
+        console.log(arrayOne[0] + ":" + arrayOne[2], arrayTwo[0] + ":" + arrayTwo[2]);
+        var currentResult = winnerCheck(arrayOne, arrayTwo, round);
+        if (currentResult === "No Winner") {
+            console.log(currentResult);
+        } else {
+            alert(currentResult);
+            console.log(currentResult);
+            break;
+        }
+    }
+}
+
+
+
 function init() {
     'use strict';
     var playerOne = ["Spiderman", 20, 100];
