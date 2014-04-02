@@ -37,7 +37,7 @@ function fight(){
         round++;
         // Damage formula for players 1 and 2.
         playerOneDamage = Math.floor(Math.random() * (playerOne[1] - playerOneMinDamage) + playerOneMinDamage);
-        playerTwoDamage = Math.floor(Math.random() * (playerTwo[2] - playerTwoMinDamage) + playerTwoMinDamage);
+        playerTwoDamage = Math.floor(Math.random() * (playerTwo[1] - playerTwoMinDamage) + playerTwoMinDamage);
         // Deducts damage from the current health.
         playerOne[2] -= playerTwoDamage;
         playerTwo[2] -= playerOneDamage;
@@ -76,35 +76,35 @@ function winnerCheck(){
             console.log("Result: It's a Draw");
         }
         // Else if, player 1 has more health then player 1 wins.
-        else if (playerOneHealth > playerTwoHealth){
+        else if (playerOne[2] > playerTwo[2]){
             // Update the result.
             result = "Player 1 Wins"
-            console.log("Result: " + playerOneName + " Wins");
+            console.log("Result: " + playerOne[0] + " Wins");
         }
         // Else, player 2 wins.
         else {
             // Update the result.
             result = "Player 2 Wins"
-            console.log("Result: " + playerTwoName + " Wins");
+            console.log("Result: " + playerTwo[0] + " Wins");
         }
     }
     // Else if, both players healths are depleted then they both die.
-    else if (playerOneHealth <= 0 && playerTwoHealth <= 0){
+    else if (playerOne[2] <= 0 && playerTwo[2] <= 0){
         // Update the result.
         result = "You Both Die"
         console.log("Result: You Both Die");
     }
     // Else if, player 1's health is depleted then player 2 wins.
-    else if (playerOneHealth <= 0){
+    else if (playerOne[2] <= 0){
         // Update the result.
         result = "Player 2 Wins"
-        console.log("Result: " + playerTwoName + " Wins");
+        console.log("Result: " + playerTwo[0] + " Wins");
     }
     // Else if, player 2's health is depleted then player 1 wins.
-    else if (playerTwoHealth <= 0){
+    else if (playerTwo[2] <= 0){
         // Update the result.
         result = "Player 1 Wins"
-        console.log("Result: " + playerOneName + " Wins");
+        console.log("Result: " + playerOne[0] + " Wins");
     }
     // Else, the battle continues and there is no victor yet.
     else {
