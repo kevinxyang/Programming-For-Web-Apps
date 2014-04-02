@@ -71,6 +71,8 @@ function fight(name1, name2, damage1, damage2, health1, health2) {
     }
 } // End of fight() function.
 
+
+
 // Function is called after the window has loaded.
 function init() {
     'use strict';
