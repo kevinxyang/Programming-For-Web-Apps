@@ -73,16 +73,16 @@ function fight(name1, name2, damage1, damage2, health1, health2) {
 
 // Function is called after the window has loaded.
 function init() {
-	'use strict';
-	// The givens.
-	var playerOne = "Spiderman";
-	var playerTwo = "Batman";
-	var playerOneDamage = 20;
-	var playerTwoDamage = 20;
-	var playerOneHealth = 100;
-	var playerTwoHealth = 100;
-	// Alerts user about the starting conditions for our game.
-	alert(playerOne + ":" + playerOneHealth + " *START* " + playerTwo + ":" + playerTwoHealth);
+    'use strict';
+    // The givens.
+    var playerOne = "Spiderman";
+    var playerTwo = "Batman";
+    var playerOneDamage = 20;
+    var playerTwoDamage = 20;
+    var playerOneHealth = 100;
+    var playerTwoHealth = 100;
+    // Alerts user about the starting conditions for our game.
+    alert(playerOne + ":" + playerOneHealth + " *START* " + playerTwo + ":" + playerTwoHealth);
     console.log("Begin!");
     // Calls the fight() function.
     fight(playerOne, playerTwo, playerOneDamage, playerTwoDamage, playerOneHealth, playerTwoHealth);
