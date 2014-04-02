@@ -108,7 +108,21 @@
     //--------------------------------------------------------
     console.log("4. sentence char count");
 
-        //PUT FUNCTION HERE
+    var charCount = function(sentence) {
+
+        var count = 0;
+        var newSentence = new String(sentence);
+
+        for (var i = 0; i < newSentence.length; i++) {
+            if (newSentence[i] === " ") {
+                continue;
+            } else {
+                count++;
+            }
+        }
+
+        return count;
+    }
 
     console.log(charCount(ipsum));
 
