@@ -45,7 +45,7 @@
     console.log('------ Goal2: Assignment: JavaScript Practice ----------');
 
     console.log("1. avg of an array of numbers");
-    var avgNumbers = function(arr){
+    var avgNumbers = function(arr) {
 
         var denominator = arr.length;
         var numerator = 0;
@@ -64,7 +64,17 @@
     //--------------------------------------------------------
     console.log("2. concat first and last name");
 
-        //PUT FUNCTION HERE
+    var fullName = function(first, last) {
+
+        var name = "";
+        var letters = new String(first + " " + last);
+
+        for (var i = 0; i < letters.length; i++) {
+            name += letters[i];
+        }
+
+        return name;
+    }
 
     console.log(fullName('James', 'Bond'));
 
