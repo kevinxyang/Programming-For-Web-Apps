@@ -1,21 +1,15 @@
 // Kevin Yang
 // April 1st, 2014
-// The Duel - Part I
-// =================
+// The Duel - Part II
+// ==================
 
 
 
 // Givens
 // ------
 
-// Prompts the user for both player's names.
-var playerOneName = prompt("What is Player 1's Name?", "Spiderman");
-var playerTwoName = prompt("What is Player 2's Name?", "Batman");
-// Sets the starting health of each player to 100.
-var playerOneHealth = playerTwoHealth = 100;
-// Prompts the user for the max damage of each player.
-var playerOneMaxDamage = playerTwoMaxDamage = Number(prompt("How much damage do the fighters do?", 20));
-// Keeps track of the round.
+var playerOne = ["Spiderman", 20, 100];
+var playerTwo = ["Batman", 20, 100];
 var round = 1;
 
 
@@ -27,37 +21,37 @@ function fight(){
     // Sets the current result to START!
     var currentResult = "*START*";
     // Sets players minimum damage.
-    var playerOneMinDamage = playerOneMaxDamage * .5;
-    var playerTwoMinDamage = playerTwoMaxDamage * .5;
+    var playerOneMinDamage = playerOne[1] * .5;
+    var playerTwoMinDamage = playerTwo[1] * .5;
     // Displays the current round
     console.log("Round " + round);
     // Displays the player's names and starting health to the console.
-    console.log(playerOneName + ":" + playerOneHealth + " " + playerTwoName + ":" + playerTwoHealth);
+    console.log(playerOne[0] + ":" + playerOne[2] + " " + playerTwo[0] + ":" + playerTwo[2]);
     console.log("Fight!");
     console.log("--------------");
     // Alerts the user about the starting conditions.
-    alert(playerOneName + ":" + playerOneHealth + " " + currentResult + " " + playerTwoName + ":" + playerTwoHealth);
+    alert(playerOne[0] + ":" + playerOne[2] + " " + currentResult + " " + playerTwo[0] + ":" + playerTwo[2]);
     // For rounds 1 through 10...
     for (var i = 0; i < 10; i++){
         // Update the round.
         round++;
         // Damage formula for players 1 and 2.
-        playerOneDamage = Math.floor(Math.random() * (playerOneMaxDamage - playerOneMinDamage) + playerOneMinDamage);
-        playerTwoDamage = Math.floor(Math.random() * (playerTwoMaxDamage - playerTwoMinDamage) + playerTwoMinDamage);
+        playerOneDamage = Math.floor(Math.random() * (playerOne[1] - playerOneMinDamage) + playerOneMinDamage);
+        playerTwoDamage = Math.floor(Math.random() * (playerTwo[2] - playerTwoMinDamage) + playerTwoMinDamage);
         // Deducts damage from the current health.
-        playerOneHealth -= playerTwoDamage;
-        playerTwoHealth -= playerOneDamage;
+        playerOne[2] -= playerTwoDamage;
+        playerTwo[2] -= playerOneDamage;
         // Displays the current round.
         console.log("Round " + round);
         // Displays the players' current health.
-        console.log(playerOneName + ":" + playerOneHealth + " " + playerTwoName + ":" + playerTwoHealth);
+        console.log(playerOne[0] + ":" + playerOne[2] + " " + playerTwo[0] + ":" + playerTwo[2]);
         // Updates the result by calling the function winnerCheck().
         currentResult = winnerCheck();
         console.log("--------------");
         // If no winner has been determined...
         if (currentResult === "No Winner") {
             // Alert the user about the current health of the players.
-            alert(playerOneName + ":" + playerOneHealth + " *ROUND " + round + " OVER* " + playerTwoName + ":" + playerTwoHealth);
+            alert(playerOne[0] + ":" + playerOne[2] + " *ROUND " + round + " OVER* " + playerTwo[0] + ":" + playerTwo[2]);
         }
         // Else...
         else {
@@ -76,7 +70,7 @@ function winnerCheck(){
     // If it's been 10 rounds, then...
     if (round === 10){
         // If both players healths are equal, then its a draw.
-        if (playerOneHealth === playerTwoHealth){
+        if (playerOne[2] === playerTwo[2]){
             // Update the result.
             result = "It's a Draw!"
             console.log("Result: It's a Draw");
