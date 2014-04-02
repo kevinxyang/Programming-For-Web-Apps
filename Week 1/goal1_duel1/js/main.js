@@ -5,9 +5,12 @@
 
 
 
+// Takes the names, healths, and the current round of the fight as arguments.
 function winnerCheck(name1, name2, health1, health2, currentRound) {
     'use strict';
+    // Set default result to "No Winner".
     var result = "No Winner";
+    // Determine a winner if the 10th round is reached.
     if (currentRound === 10) {
         if (health1 === health2) {
             result = "Draw";
@@ -16,17 +19,22 @@ function winnerCheck(name1, name2, health1, health2, currentRound) {
         } else {
             result = name2 + " Wins";
         }
+    // Else if either or both player's health drops to 0 or below, determine a winner.
     } else if ((health1 <= 0) && (health2 <= 0)) {
         result = "You Both Die";
     } else if (health1 <= 0) {
         result = name2 + " Wins";
     } else if (health2 <= 0) {
         result = name1 + " Wins";
+    // Else, do not determine a winner.
     } else {
         result = "No Winner";
     }
+    // Return the value.
     return result;
 } // End of winnerCheck() function.
+
+
 
 // Takes our givens as arguments.
 function fight(name1, name2, damage1, damage2, health1, health2) {
@@ -79,5 +87,7 @@ function init() {
     // Calls the fight() function.
     fight(playerOne, playerTwo, playerOneDamage, playerTwoDamage, playerOneHealth, playerTwoHealth);
 } // End of init() function.
+
+
 
 window.onload = init;
