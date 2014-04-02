@@ -151,7 +151,24 @@
     //--------------------------------------------------------
     console.log("6. find number and create an array of even or odd numbers");
 
-        //PUT FUNCTION HERE
+    var findNum = function(arr, bool) {
+        var evenArray = [];
+        var oddArray = [];
+
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 === 0) {
+                evenArray.push(arr[i]);
+            } else {
+                oddArray.push(arr[i]);
+            }
+        }
+
+        if (bool === false || bool === null) {
+            return oddArray;
+        }
+
+        return evenArray;
+    }
 
     console.log(findNum([31,22,4,67,83,6,5,4]));
     console.log(findNum([31,22,4,67,83,6,5,4], false));
