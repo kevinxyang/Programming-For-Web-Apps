@@ -5,7 +5,7 @@
 
 
 
-function checkWinner(name1, name2, health1, health2) {
+function winnerCheck(name1, name2, health1, health2) {
 	console.log("Hello World!");
 } 
 
@@ -38,8 +38,10 @@ function init() {
 	'use strict';
 	var playerOne = "Spiderman";
 	var playerTwo = "Batman";
-	var playerOneDamage = playerTwoDamage = 20;
-	var playerOneHealth = playerTwoHealth = 100;
+	var playerOneDamage = 20;
+	var playerTwoDamage = 20;
+	var playerOneHealth = 100;
+	var playerTwoHealth = 100;
 	alert(playerOne + ":" + playerOneHealth + " *START* " + playerTwo + ":" + playerTwoHealth);
     console.log("Begin!");
     fight(playerOne, playerTwo, playerOneDamage, playerTwoDamage, playerOneHealth, playerTwoHealth);
