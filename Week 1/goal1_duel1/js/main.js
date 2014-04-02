@@ -5,9 +5,28 @@
 
 
 
-function winnerCheck(name1, name2, health1, health2) {
-	console.log("Hello World!");
-} 
+function winnerCheck(name1, name2, health1, health2, currentRound) {
+    'use strict';
+    var result = "No Winner";
+    if (currentRound === 10) {
+        if (health1 === health2) {
+            result = "Draw";
+        } else if (health1 > health2) {
+            result = name1 + " Wins";
+        } else {
+            result = name2 + " Wins";
+        }
+    } else if ((health1 <= 0) && (health2 <= 0)) {
+        result = "Both Die";
+    } else if (health1 <= 0) {
+        result = name2 + " Wins";
+    } else if (health2 <= 0) {
+        result = name1 + " Wins";
+    } else {
+        result = "No Winner";
+    }
+    return result;
+}
 
 function fight(name1, name2, damage1, damage2, health1, health2) {
     'use strict';
