@@ -52,6 +52,8 @@ function fight(playerOne, playerTwo) {
         playerTwo.health -= playerTwoDamage;
         // Increment the round by 1.
         round++;
+        // document.getElementById("p1").innerHTML = playerOne.health;
+        // document.getElementById("p2").innerHTML = playerTwo.health;
         // Alert the user about the updated information.
         alert(playerOne.name + ":" + playerOne.health + " *ROUND " + round + "* " + playerTwo.name + ":" + playerTwo.health);
         // Print the updated information to the console.
@@ -76,22 +78,24 @@ function fight(playerOne, playerTwo) {
 function init() {
     'use strict';
     // Stores the player names, damage, and health in an array.
-    var spiderman = {
+    var players = [];
+    players[0] = {
         name: "Spiderman",
         damage: 20,
         health: 100
     };
-    var batman = {
+    players[1] = {
         name: "Batman",
         damage: 20,
         health: 100
     };
-    // document.getElementById("p1").innerHTML = 100;
+    document.getElementById("p1").innerHTML = players[0].health;
+    document.getElementById("p2").innerHTML = players[1].health;
     // Alerts the user about the starting conditions.
-    alert(spiderman.name + ":" + spiderman.health + " *START* " + batman.name + ":" + batman.health);
+    // alert(spiderman.name + ":" + spiderman.health + " *START* " + batman.name + ":" + batman.health);
     console.log("Begin!");
     // Calls the fight() function.
-    fight(spiderman, batman);
+    fight(players[0], players[1]);
 } // End of the init() function.
 
 
