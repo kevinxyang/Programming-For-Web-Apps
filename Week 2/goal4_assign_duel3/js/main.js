@@ -6,26 +6,26 @@
 
 
 // Takes two arrays and the current round as parameters.
-function winnerCheck(arrayOne, arrayTwo, currentRound) {
+function winnerCheck(playerOne, playerTwo, currentRound) {
     'use strict';
     // Sets the default value of result to "No Winner".
     var result = "No Winner";
     // If the fight has lasted 10 rounds, then determine a winner or call it a draw.
     if (currentRound === 10) {
-        if (arrayOne[2] === arrayTwo[2]) {
+        if (playerOne.health === playerTwo.health) {
             result = "Draw";
-        } else if (arrayOne[2] > arrayTwo[2]) {
-            result = arrayOne[0] + " Wins";
+        } else if (playerOne.health > playerTwo.health) {
+            result = playerOne.name + " Wins";
         } else {
-            result = arrayTwo[0] + " Wins";
+            result = playerTwo.name + " Wins";
         }
     // Else if, either or both players health drops to 0 or below, determine a winner.
-    } else if ((arrayOne[2] <= 0) && (arrayTwo[2] <= 0)) {
+    } else if ((playerOne.health <= 0) && (playerTwo.health <= 0)) {
         result = "Both Die";
-    } else if (arrayOne[2] <= 0) {
-        result = arrayTwo[0] + " Wins";
-    } else if (arrayTwo[2] <= 0) {
-        result = arrayOne[0] + " Wins";
+    } else if (playerOne.health <= 0) {
+        result = playerTwo.name + " Wins";
+    } else if (playerTwo.health <= 0) {
+        result = playerOne.name + " Wins";
     // Else do not determine a winner yet.
     } else {
         result = "No Winner";
@@ -37,28 +37,28 @@ function winnerCheck(arrayOne, arrayTwo, currentRound) {
 
 
 // Takes two arrays as parameters.
-function fight(arrayOne, arrayTwo) {
+function fight(playerOne, playerTwo) {
     'use strict';
     // Sets the starting round to 1.
     var round = 1;
     // Calculates each player's minimum damage.
-    var playerOneMinDamage = arrayOne[1] * .5;
-    var playerTwoMinDamage = arrayTwo[1] * .5;
+    var playerOneMinDamage = playerOne.damage * .5;
+    var playerTwoMinDamage = playerTwo.damage * .5;
     // For each round, recalculate each player's damage and subtract it from the other player's remaining health.
     for (var i = 0; i < 10; i++) {
-        var playerOneDamage = Math.floor(Math.random() * (arrayOne[1] - playerOneMinDamage) + playerOneMinDamage);
-        var playerTwoDamage = Math.floor(Math.random() * (arrayTwo[1] - playerTwoMinDamage) + playerTwoMinDamage);
-        arrayOne[2] -= playerOneDamage;
-        arrayTwo[2] -= playerTwoDamage;
+        var playerOneDamage = Math.floor(Math.random() * (playerOne.damage - playerOneMinDamage) + playerOneMinDamage);
+        var playerTwoDamage = Math.floor(Math.random() * (playerTwo.damage - playerTwoMinDamage) + playerTwoMinDamage);
+        playerOne.health -= playerOneDamage;
+        playerTwo.health -= playerTwoDamage;
         // Increment the round by 1.
         round++;
         // Alert the user about the updated information.
-        alert(arrayOne[0] + ":" + arrayOne[2] + " *ROUND " + round + "* " + arrayTwo[0] + ":" + arrayTwo[2]);
+        alert(playerOne.name + ":" + playerOne.health + " *ROUND " + round + "* " + playerTwo.name + ":" + playerTwo.health);
         // Print the updated information to the console.
         console.log("---- Round " + round + " ----");
-        console.log(arrayOne[0] + ":" + arrayOne[2], arrayTwo[0] + ":" + arrayTwo[2]);
+        console.log(playerOne.name + ":" + playerOne.health, playerTwo.name + ":" + playerTwo.health);
         // Call the winnerCheck() function, and store the result in currentResult.
-        var currentResult = winnerCheck(arrayOne, arrayTwo, round);
+        var currentResult = winnerCheck(playerOne, playerTwo, round);
         // If no winner has been determined then stay in the loop, else exit the loop.
         if (currentResult === "No Winner") {
             console.log(currentResult);
@@ -76,13 +76,22 @@ function fight(arrayOne, arrayTwo) {
 function init() {
     'use strict';
     // Stores the player names, damage, and health in an array.
-    var playerOne = ["Spiderman", 20, 100];
-    var playerTwo = ["Batman", 20, 100];
+    var spiderman = {
+        name: "Spiderman",
+        damage: 20,
+        health: 100
+    };
+    var batman = {
+        name: "Batman",
+        damage: 20,
+        health: 100
+    };
+    // document.getElementById("p1").innerHTML = 100;
     // Alerts the user about the starting conditions.
-    alert(playerOne[0] + ":" + playerOne[2] + " *START* " + playerTwo[0] + ":" + playerTwo[2]);
+    alert(spiderman.name + ":" + spiderman.health + " *START* " + batman.name + ":" + batman.health);
     console.log("Begin!");
     // Calls the fight() function.
-    fight(playerOne, playerTwo);
+    fight(spiderman, batman);
 } // End of the init() function.
 
 
