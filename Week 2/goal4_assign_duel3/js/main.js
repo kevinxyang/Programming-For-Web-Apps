@@ -37,39 +37,32 @@ function winnerCheck(playerOne, playerTwo, currentRound) {
 
 
 // Takes two arrays as parameters.
-function fight(playerOne, playerTwo) {
+function fight(arr) {
     'use strict';
+    console.log(arr);
     // Sets the starting round to 1.
     var round = 1;
     // Calculates each player's minimum damage.
-    var playerOneMinDamage = playerOne.damage * .5;
-    var playerTwoMinDamage = playerTwo.damage * .5;
-    // For each round, recalculate each player's damage and subtract it from the other player's remaining health.
-    for (var i = 0; i < 10; i++) {
-        var playerOneDamage = Math.floor(Math.random() * (playerOne.damage - playerOneMinDamage) + playerOneMinDamage);
-        var playerTwoDamage = Math.floor(Math.random() * (playerTwo.damage - playerTwoMinDamage) + playerTwoMinDamage);
-        playerOne.health -= playerOneDamage;
-        playerTwo.health -= playerTwoDamage;
-        // Increment the round by 1.
-        round++;
-        // document.getElementById("p1").innerHTML = playerOne.health;
-        // document.getElementById("p2").innerHTML = playerTwo.health;
-        // Alert the user about the updated information.
-        alert(playerOne.name + ":" + playerOne.health + " *ROUND " + round + "* " + playerTwo.name + ":" + playerTwo.health);
-        // Print the updated information to the console.
-        console.log("---- Round " + round + " ----");
-        console.log(playerOne.name + ":" + playerOne.health, playerTwo.name + ":" + playerTwo.health);
-        // Call the winnerCheck() function, and store the result in currentResult.
-        var currentResult = winnerCheck(playerOne, playerTwo, round);
-        // If no winner has been determined then stay in the loop, else exit the loop.
-        if (currentResult === "No Winner") {
-            console.log(currentResult);
-        } else {
-            alert(currentResult);
-            console.log(currentResult);
-            break;
-        }
-    }
+    var playerOneMinDamage = arr[0].damage * .5;
+    var playerTwoMinDamage = arr[1].damage * .5;
+    var playerOneDamage = Math.floor(Math.random() * (arr[0].damage - playerOneMinDamage) + playerOneMinDamage);
+    var playerTwoDamage = Math.floor(Math.random() * (arr[1].damage - playerTwoMinDamage) + playerTwoMinDamage);
+    arr[0].health -= playerOneDamage;
+    arr[1].health -= playerTwoDamage;
+    // Increment the round by 1.
+    round++;
+    document.getElementById("round").innerHTML = "Round " + round;
+    document.getElementsByTagName("p")[0].innerHTML = arr[0].name + ": " + arr[0].health;
+    document.getElementsByTagName("p")[1].innerHTML = arr[1].name + ": " + arr[1].health;
+    // Alert the user about the updated information.
+    // alert(playerOne.name + ":" + playerOne.health + " *ROUND " + round + "* " + playerTwo.name + ":" + playerTwo.health);
+    // Print the updated information to the console.
+    console.log("---- Round " + round + " ----");
+    console.log(arr[0].name + ":" + arr[0].health, arr[1].name + ":" + arr[1].health);
+    // Call the winnerCheck() function, and store the result in currentResult.
+    // var currentResult = winnerCheck(arr, round);
+    return false;
+    
 } // End of the fight() function.
 
 
@@ -89,13 +82,12 @@ function init() {
         damage: 20,
         health: 100
     };
-    document.getElementById("p1").innerHTML = players[0].health;
-    document.getElementById("p2").innerHTML = players[1].health;
+    document.getElementsByTagName("p")[0].innerHTML = players[0].name + ": " + players[0].health;
+    document.getElementsByTagName("p")[1].innerHTML = players[1].name + ": " + players[1].health;
     // Alerts the user about the starting conditions.
     // alert(spiderman.name + ":" + spiderman.health + " *START* " + batman.name + ":" + batman.health);
     console.log("Begin!");
-    // Calls the fight() function.
-    fight(players[0], players[1]);
+    document.getElementsByTagName("a")[0].onclick = fight(players);
 } // End of the init() function.
 
 
