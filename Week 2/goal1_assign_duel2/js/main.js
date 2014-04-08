@@ -5,6 +5,42 @@
 
 
 
+// Takes two arrays as parameters.
+function fight(arrayOne, arrayTwo) {
+    'use strict';
+    // Sets the starting round to 1.
+    var round = 1;
+    // Calculates each player's minimum damage.
+    var playerOneMinDamage = arrayOne[1] * .5;
+    var playerTwoMinDamage = arrayTwo[1] * .5;
+    // For each round, recalculate each player's damage and subtract it from the other player's remaining health.
+    for (var i = 0; i < 10; i++) {
+        var playerOneDamage = Math.floor(Math.random() * (arrayOne[1] - playerOneMinDamage) + playerOneMinDamage);
+        var playerTwoDamage = Math.floor(Math.random() * (arrayTwo[1] - playerTwoMinDamage) + playerTwoMinDamage);
+        arrayOne[2] -= playerOneDamage;
+        arrayTwo[2] -= playerTwoDamage;
+        // Increment the round by 1.
+        round++;
+        // Alert the user about the updated information.
+        alert(arrayOne[0] + ":" + arrayOne[2] + " *ROUND " + round + "* " + arrayTwo[0] + ":" + arrayTwo[2]);
+        // Print the updated information to the console.
+        console.log("---- Round " + round + " ----");
+        console.log(arrayOne[0] + ":" + arrayOne[2], arrayTwo[0] + ":" + arrayTwo[2]);
+        // Call the winnerCheck() function, and store the result in currentResult.
+        var currentResult = winnerCheck(arrayOne, arrayTwo, round);
+        // If no winner has been determined then stay in the loop, else exit the loop.
+        if (currentResult === "No Winner") {
+            console.log(currentResult);
+        } else {
+            alert(currentResult);
+            console.log(currentResult);
+            break;
+        }
+    }
+} // End of the fight() function.
+
+
+
 // The function is called after the window has loaded.
 function init() {
     'use strict';
