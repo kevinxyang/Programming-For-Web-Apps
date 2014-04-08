@@ -5,6 +5,37 @@
 
 
 
+// Takes two arrays and the current round as parameters.
+function winnerCheck(arrayOne, arrayTwo, currentRound) {
+    'use strict';
+    // Sets the default value of result to "No Winner".
+    var result = "No Winner";
+    // If the fight has lasted 10 rounds, then determine a winner or call it a draw.
+    if (currentRound === 10) {
+        if (arrayOne[2] === arrayTwo[2]) {
+            result = "Draw";
+        } else if (arrayOne[2] > arrayTwo[2]) {
+            result = arrayOne[0] + " Wins";
+        } else {
+            result = arrayTwo[0] + " Wins";
+        }
+    // Else if, either or both players health drops to 0 or below, determine a winner.
+    } else if ((arrayOne[2] <= 0) && (arrayTwo[2] <= 0)) {
+        result = "Both Die";
+    } else if (arrayOne[2] <= 0) {
+        result = arrayTwo[0] + " Wins";
+    } else if (arrayTwo[2] <= 0) {
+        result = arrayOne[0] + " Wins";
+    // Else do not determine a winner yet.
+    } else {
+        result = "No Winner";
+    }
+    // Return the value of result.
+    return result;
+} // End of the winnerCheck() function.
+
+
+
 // Takes two arrays as parameters.
 function fight(arrayOne, arrayTwo) {
     'use strict';
