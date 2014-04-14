@@ -8,20 +8,20 @@
 function winnerCheck(myArray) {
     'use strict';
     var result = "No Winner";
-    if (myArray[0].round === 10 && myArray[1].round === 10) {
+    if (myArray[0].round === 11 && myArray[1].round === 11) {
         if (myArray[0].health === myArray[1].health) {
             result = "Draw";
         } else if (myArray[0].health > myArray[1].health) {
-            result = myArray[0].name + " Wins";
+            result = myArray[0].name + " WINS!!!";
         } else {
-            result = myArray[1].name + " Wins";
+            result = myArray[1].name + " WINS!!!";
         }
     } else if ((myArray[0].health <= 0) && (myArray[1].health <= 0)) {
-        result = "Both Die";
+        result = "You Both Die";
     } else if (myArray[0].health <= 0) {
-        result = myArray[1].name + " Wins";
+        result = myArray[1].name + " WINS!!!";
     } else if (myArray[1].health <= 0) {
-        result = myArray[0].name + " Wins";
+        result = myArray[0].name + " WINS!!!";
     } else {
         result = "No Winner";
     }
@@ -39,17 +39,17 @@ function fight(myArray) {
     var playerTwoDamage = Math.floor(Math.random() * (myArray[1].damage - playerTwoMinDamage) + playerTwoMinDamage);
     myArray[0].health -= playerOneDamage;
     myArray[1].health -= playerTwoDamage;
-    myArray[0].round++;
-    myArray[1].round++;
-    document.getElementById("round").innerHTML = "Round " + myArray[0].round;
+    document.getElementById("round").innerHTML = "ROUND " + myArray[0].round + " Complete";
     document.getElementsByTagName("p")[0].innerHTML = myArray[0].name + ": " + myArray[0].health;
     document.getElementsByTagName("p")[1].innerHTML = myArray[1].name + ": " + myArray[1].health;
     console.log("---- Round " + myArray[1].round + " ----");
     console.log(myArray[0].name + ":" + myArray[0].health, myArray[1].name + ":" + myArray[1].health);
+    myArray[0].round++;
+    myArray[1].round++;
     var currentResult = winnerCheck(myArray);
-
     if (currentResult !== "No Winner") {
-        document.getElementById("round").innerHTML = currentResult;
+        document.getElementsByTagName("p")[0].innerHTML = currentResult;
+        document.getElementsByTagName("p")[1].innerHTML = currentResult;
         document.getElementsByTagName("a")[0].onclick = " ";
     }
     console.log(currentResult);
