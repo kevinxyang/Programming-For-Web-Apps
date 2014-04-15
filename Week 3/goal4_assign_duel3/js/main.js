@@ -19,16 +19,23 @@ function fight(myArray, currentRound) {
     myArray[1].health -= playerTwoDamage;
     // Find the element in the document with ID equal to round and display the current round within the HTML.
     document.getElementById("round").innerHTML = "ROUND " + currentRound + " Complete";
+    // Update each player's health.
     document.getElementsByTagName("p")[0].innerHTML = myArray[0].name + ": " + myArray[0].health;
     document.getElementsByTagName("p")[1].innerHTML = myArray[1].name + ": " + myArray[1].health;
+    // Log the results in the console.
     console.log("---- Round " + currentRound + " ----");
     console.log(myArray[0].name + ":" + myArray[0].health, myArray[1].name + ":" + myArray[1].health);
+    // Call winnerCheck() and store the value in the variable currentResult.
     var currentResult = winnerCheck(myArray, currentRound);
+    // If a winner has been decided...
     if (currentResult !== "No Winner") {
+    	// Display the results.
         document.getElementsByTagName("p")[0].innerHTML = currentResult;
         document.getElementsByTagName("p")[1].innerHTML = currentResult;
+        // Disable the button.
         document.getElementsByTagName("a")[0].onclick = " ";
     }
+    // Log the result in the console.
     console.log(currentResult);
 
 } // End of the fight() function.
