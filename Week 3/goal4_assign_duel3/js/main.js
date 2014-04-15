@@ -29,7 +29,7 @@ function winnerCheck(myArray, currentRound) {
     } else if (myArray[1].health <= 0) {
         result = myArray[0].name + " WINS!!!";
     } else {
-   	// Else there is No Winner.
+    // Else there is No Winner.
         result = "No Winner";
     }
     // Return the result.
@@ -63,7 +63,7 @@ function fight(myArray, currentRound) {
     var currentResult = winnerCheck(myArray, currentRound);
     // If a winner has been decided...
     if (currentResult !== "No Winner") {
-    	// Display the results.
+        // Display the results.
         document.getElementsByTagName("p")[0].innerHTML = currentResult;
         document.getElementsByTagName("p")[1].innerHTML = currentResult;
         // Disable the button.
