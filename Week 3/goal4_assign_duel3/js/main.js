@@ -5,6 +5,32 @@
 
 
 
+function winnerCheck(myArray, currentRound) {
+    'use strict';
+    var result = "No Winner";
+    if (currentRound > 9) {
+        if (myArray[0].health === myArray[1].health) {
+            result = "Draw";
+        } else if (myArray[0].health > myArray[1].health) {
+            result = myArray[0].name + " WINS!!!";
+        } else {
+            result = myArray[1].name + " WINS!!!";
+        }
+    } else if ((myArray[0].health <= 0) && (myArray[1].health <= 0)) {
+        result = "You Both Die";
+    } else if (myArray[0].health <= 0) {
+        result = myArray[1].name + " WINS!!!";
+    } else if (myArray[1].health <= 0) {
+        result = myArray[0].name + " WINS!!!";
+    } else {
+        result = "No Winner";
+    }
+    return result;
+
+} // End of the winnerCheck() function.
+
+
+
 // The fight function is called after the button has been clicked.
 function fight(myArray, currentRound) {
     'use strict';
