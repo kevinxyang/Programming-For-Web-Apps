@@ -5,9 +5,12 @@
 
 
 
+// Called each time the players' health is updated.
 function winnerCheck(myArray, currentRound) {
     'use strict';
+    // Default result is No Winner.
     var result = "No Winner";
+    // If the fight has gone on for 10 rounds then determine a winner.
     if (currentRound > 9) {
         if (myArray[0].health === myArray[1].health) {
             result = "Draw";
@@ -16,15 +19,20 @@ function winnerCheck(myArray, currentRound) {
         } else {
             result = myArray[1].name + " WINS!!!";
         }
+    // If both players run out of HP then set the result to they both die.
     } else if ((myArray[0].health <= 0) && (myArray[1].health <= 0)) {
         result = "You Both Die";
+    // Else if player 1 dies, then set the result equal to player 2 wins.
     } else if (myArray[0].health <= 0) {
         result = myArray[1].name + " WINS!!!";
+    // Else if player 2 dies, then set the result equal to player 1 wins.
     } else if (myArray[1].health <= 0) {
         result = myArray[0].name + " WINS!!!";
     } else {
+   	// Else there is No Winner.
         result = "No Winner";
     }
+    // Return the result.
     return result;
 
 } // End of the winnerCheck() function.
