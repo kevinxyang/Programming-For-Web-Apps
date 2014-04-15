@@ -5,10 +5,10 @@
 
 
 
-function winnerCheck(myArray) {
+function winnerCheck(myArray, currentRound) {
     'use strict';
     var result = "No Winner";
-    if (myArray[0].round === 11 && myArray[1].round === 11) {
+    if (currentRound > 9) {
         if (myArray[0].health === myArray[1].health) {
             result = "Draw";
         } else if (myArray[0].health > myArray[1].health) {
@@ -31,7 +31,7 @@ function winnerCheck(myArray) {
 
 
 
-function fight(myArray) {
+function fight(myArray, currentRound) {
     'use strict';
     var playerOneMinDamage = myArray[0].damage * .5;
     var playerTwoMinDamage = myArray[1].damage * .5;
@@ -39,14 +39,12 @@ function fight(myArray) {
     var playerTwoDamage = Math.floor(Math.random() * (myArray[1].damage - playerTwoMinDamage) + playerTwoMinDamage);
     myArray[0].health -= playerOneDamage;
     myArray[1].health -= playerTwoDamage;
-    document.getElementById("round").innerHTML = "ROUND " + myArray[0].round + " Complete";
+    document.getElementById("round").innerHTML = "ROUND " + currentRound + " Complete";
     document.getElementsByTagName("p")[0].innerHTML = myArray[0].name + ": " + myArray[0].health;
     document.getElementsByTagName("p")[1].innerHTML = myArray[1].name + ": " + myArray[1].health;
-    console.log("---- Round " + myArray[1].round + " ----");
+    console.log("---- Round " + currentRound + " ----");
     console.log(myArray[0].name + ":" + myArray[0].health, myArray[1].name + ":" + myArray[1].health);
-    myArray[0].round++;
-    myArray[1].round++;
-    var currentResult = winnerCheck(myArray);
+    var currentResult = winnerCheck(myArray, currentRound);
     if (currentResult !== "No Winner") {
         document.getElementsByTagName("p")[0].innerHTML = currentResult;
         document.getElementsByTagName("p")[1].innerHTML = currentResult;
@@ -66,17 +64,19 @@ function init() {
         name: "Spiderman",
         damage: 20,
         health: 100,
-        round: 1
     };
     players[1] = {
         name: "Batman",
         damage: 20,
         health: 100,
-        round: 1
     };
+    var round = 0;
     document.getElementsByTagName("p")[0].innerHTML = players[0].name + ": " + players[0].health;
     document.getElementsByTagName("p")[1].innerHTML = players[1].name + ": " + players[1].health;
-    document.getElementsByTagName("a")[0].onclick = function() { fight(players); };
+    document.getElementsByTagName("a")[0].onclick = function() {
+        round++;
+        fight(players, round);
+    };
     console.log("Begin!");
 
 } // End of the init() function.
